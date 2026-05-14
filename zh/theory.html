@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脉息术 · 人迎气口脉法 · 十大脉象 - 长桑君脉法</title>
+    <meta name="description" content="长桑君脉法的核心理论体系，包括脉息比计算工具、人迎气口脉法对比诊断及十大常见脉象解析。">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+                  <defs>
+                    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#8B1E14" stop-opacity="0.5"/>
+                      <stop offset="50%" stop-color="#8B1E14" stop-opacity="1"/>
+                      <stop offset="100%" stop-color="#8B1E14" stop-opacity="0.5"/>
+                    </linearGradient>
+                  </defs>
+                  <g transform="translate(5, 10)">
+                    <path d="M 0 25 C 10 25, 12 10, 20 10 C 28 10, 26 28, 35 28 C 44 28, 42 15, 50 15" fill="none" stroke="url(#pulseGrad)" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 17 0 C 17 -4, 23 -4, 23 0 L 23 8 C 23 11, 17 11, 17 8 Z" fill="#4A704A" opacity="0.85" transform="rotate(-15 20 4)"/>
+                    <path d="M 32 10 C 32 6, 38 6, 38 10 L 38 18 C 38 21, 32 21, 32 18 Z" fill="#4A704A" opacity="0.85" transform="rotate(-15 35 14)"/>
+                    <path d="M 47 4 C 47 0, 53 0, 53 4 L 53 12 C 53 15, 47 15, 47 12 Z" fill="#4A704A" opacity="0.85" transform="rotate(-15 50 8)"/>
+                  </g>
+                  <text x="65" y="38" font-family="'Kaiti', 'STKaiti', 'KaiTi_GB2312', 'Noto Serif SC', serif" font-size="22" fill="#8B1E14" font-weight="bold" letter-spacing="2">长桑君脉法</text>
+                  <text x="67" y="52" font-family="Arial, sans-serif" font-size="8" fill="#4A704A" letter-spacing="1.5" opacity="0.8">CHANG SANG JUN PULSE METHOD</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="origin.html">大师溯源</a></li>
+                <li><a href="theory.html" class="active">理论体系</a></li>
+                <li><a href="clinical.html">临床应用</a></li>
+                <li><a href="learning.html">学习进阶</a></li>
+                <li><a href="news.html">学术动态</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="../zh/theory.html" class="lang-btn active">中文</a>
+                <a href="../en/theory.html" class="lang-btn">English</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面页头 -->
+    <section class="page-header" style="padding-top: 120px; padding-bottom: 60px; background-color: var(--color-bg-dark); text-align: center;">
+        <div class="container">
+            <h1 class="hero-title" style="font-size: 2.8rem; margin-bottom: 20px;">脉息术 · 人迎气口脉法 · 十大脉象</h1>
+            <p class="hero-subtitle" style="margin-bottom: 0;">精准测量体质，洞察阴阳变化，掌握核心理论框架。</p>
+        </div>
+    </section>
+
+    <!-- 脉息比计算器 (Pulse Ratio Calculator) -->
+    <section id="calculator" style="padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">交互式：脉息比计算器</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--color-text-muted);">
+                基于《黄帝内经·平人气象论》，通过心跳与呼吸的比例，快速评估当前体质与阴阳状态。
+            </p>
+
+            <div class="calculator-container">
+                <div class="form-group">
+                    <label for="heartRate"><i class="fas fa-heartbeat" style="color: var(--color-primary); margin-right: 8px;"></i>心跳次数 (次/分钟)</label>
+                    <input type="number" id="heartRate" class="form-control" placeholder="请输入1分钟内的心跳次数 (如: 75)" min="30" max="200">
+                </div>
+                <div class="form-group">
+                    <label for="respRate"><i class="fas fa-wind" style="color: var(--color-secondary); margin-right: 8px;"></i>呼吸次数 (次/分钟)</label>
+                    <input type="number" id="respRate" class="form-control" placeholder="请输入1分钟内的呼吸次数 (如: 18)" min="5" max="60">
+                </div>
+                <button id="calcBtn" class="calc-btn">计算脉息比</button>
+
+                <!-- 结果展示区 -->
+                <div id="resultCard" class="result-card">
+                    <div class="result-title" id="resultTitle">
+                        <i class="fas fa-info-circle"></i> <span>计算结果</span>
+                    </div>
+                    <div class="result-stat" id="resultStat">0.0</div>
+                    <div class="result-desc" id="resultDesc">请在上方输入心跳与呼吸次数进行计算。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理论体系图文卡片 -->
+    <section id="theory-cards" style="background-color: var(--color-bg-dark); padding: 80px 0;">
+        <div class="container">
+            
+            <!-- 人迎气口脉法 -->
+            <div class="card-row">
+                <div class="card-image-wrapper">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                </div>
+                <div class="card-text-wrapper">
+                    <h3 style="font-size: 1.8rem; color: var(--color-primary); margin-bottom: 15px;">人迎气口脉法</h3>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem;">
+                        <strong>人迎脉（颈部动脉）</strong>侯阳，主表；<strong>气口脉（手腕桡动脉）</strong>侯阴，主里。长桑君脉法通过同时触摸、比对这两处脉象的盛衰变化，以此作为六经辨证的核心依据。
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        若人迎脉大于气口脉，多为外感表证或阳盛实热；若气口脉大于人迎脉，多为内伤里证或阴盛虚寒。此法简单直接，大大提高了临床诊断的客观性和准确率。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 十大脉象 -->
+            <div class="card-row">
+                <div class="card-image-wrapper">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                </div>
+                <div class="card-text-wrapper">
+                    <h3 style="font-size: 1.8rem; color: var(--color-primary); margin-bottom: 15px;">十大脉象</h3>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem;">
+                        为了便于临床学习和应用，长桑君脉法将复杂的传统二十八脉化繁为简，提炼出最具有临床指导意义的“十大脉象”。
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        这十种脉象包括：<strong>脉滚动、动脉、浊脉、大脉、小脉、滑脉、涩脉、弦脉、紧脉、弱脉</strong>。每一种脉象都直接对应明确的病理状态和用药方向，使得脉诊不再“玄之又玄”，而是“按之即明”。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 长桑君脉法 学术委员会. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chang Sang Jun Pulse Method</title>
+    <meta name="description" content="长桑君脉法的核心理论体系，包括脉息比计算工具、人迎气口脉法对比诊断及十大常见脉象解析。">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+                  <defs>
+                    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#8B1E14" stop-opacity="0.5"/>
+                      <stop offset="50%" stop-color="#8B1E14" stop-opacity="1"/>
+                      <stop offset="100%" stop-color="#8B1E14" stop-opacity="0.5"/>
+                    </linearGradient>
+                  </defs>
+                  <g transform="translate(5, 10)">
+                    <path d="M 0 25 C 10 25, 12 10, 20 10 C 28 10, 26 28, 35 28 C 44 28, 42 15, 50 15" fill="none" stroke="url(#pulseGrad)" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 17 0 C 17 -4, 23 -4, 23 0 L 23 8 C 23 11, 17 11, 17 8 Z" fill="#4A704A" opacity="0.85" transform="rotate(-15 20 4)"/>
+                    <path d="M 32 10 C 32 6, 38 6, 38 10 L 38 18 C 38 21, 32 21, 32 18 Z" fill="#4A704A" opacity="0.85" transform="rotate(-15 35 14)"/>
+                    <path d="M 47 4 C 47 0, 53 0, 53 4 L 53 12 C 53 15, 47 15, 47 12 Z" fill="#4A704A" opacity="0.85" transform="rotate(-15 50 8)"/>
+                  </g>
+                  <text x="65" y="38" font-family="'Kaiti', 'STKaiti', 'KaiTi_GB2312', 'Noto Serif SC', serif" font-size="22" fill="#8B1E14" font-weight="bold" letter-spacing="2">长桑君脉法</text>
+                  <text x="67" y="52" font-family="Arial, sans-serif" font-size="8" fill="#4A704A" letter-spacing="1.5" opacity="0.8">CHANG SANG JUN PULSE METHOD</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="origin.html">Origin</a></li>
+                <li><a href="theory.html" class="active">Theory</a></li>
+                <li><a href="clinical.html">Clinical</a></li>
+                <li><a href="learning.html">Learning</a></li>
+                <li><a href="news.html">News</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="../zh/theory.html" class="lang-btn">中文</a>
+                <a href="../en/theory.html" class="lang-btn active">English</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面页头 -->
+    <section class="page-header" style="padding-top: 120px; padding-bottom: 60px; background-color: var(--color-bg-dark); text-align: center;">
+        <div class="container">
+            <h1 class="hero-title" style="font-size: 2.8rem; margin-bottom: 20px;">Pulse-Breath Technique · Renying Qikou Pulse · Ten Pulse Images</h1>
+            <p class="hero-subtitle" style="margin-bottom: 0;">Accurately measure constitution, observe Yin-Yang changes, and master the core theoretical framework.</p>
+        </div>
+    </section>
+
+    <!-- 脉息比计算器 (Pulse Ratio Calculator) -->
+    <section id="calculator" style="padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">Interactive: Pulse Ratio Calculator</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--color-text-muted);">
+                Based on 'Discourse on the Normal Pulse', quickly evaluate the current constitution and Yin-Yang state through the ratio of heartbeat and respiration.
+            </p>
+
+            <div class="calculator-container">
+                <div class="form-group">
+                    <label for="heartRate"><i class="fas fa-heartbeat" style="color: var(--color-primary); margin-right: 8px;"></i>Heart Rate (beats/min)</label>
+                    <input type="number" id="heartRate" class="form-control" placeholder="Enter heart rate (e.g., 75)" min="30" max="200">
+                </div>
+                <div class="form-group">
+                    <label for="respRate"><i class="fas fa-wind" style="color: var(--color-secondary); margin-right: 8px;"></i>Respiratory Rate (breaths/min)</label>
+                    <input type="number" id="respRate" class="form-control" placeholder="Enter respiratory rate (e.g., 18)" min="5" max="60">
+                </div>
+                <button id="calcBtn" class="calc-btn">Calculate Ratio</button>
+
+                <!-- 结果展示区 -->
+                <div id="resultCard" class="result-card">
+                    <div class="result-title" id="resultTitle">
+                        <i class="fas fa-info-circle"></i> <span>Calculation Result</span>
+                    </div>
+                    <div class="result-stat" id="resultStat">0.0</div>
+                    <div class="result-desc" id="resultDesc">Please enter your heart rate and respiratory rate above to calculate.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理论体系图文卡片 -->
+    <section id="theory-cards" style="background-color: var(--color-bg-dark); padding: 80px 0;">
+        <div class="container">
+            
+            <!-- 人迎气口脉法 -->
+            <div class="card-row">
+                <div class="card-image-wrapper">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                </div>
+                <div class="card-text-wrapper">
+                    <h3 style="font-size: 1.8rem; color: var(--color-primary); margin-bottom: 15px;">Renying Qikou Pulse Method</h3>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem;">
+                        <strong>Renying pulse (carotid artery)</strong> represents Yang and the exterior; <strong>Qikou pulse (radial artery)</strong> represents Yin and the interior. By simultaneously palpating and comparing the strength of these two pulses, the method establishes the core basis for six-meridian differentiation.
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        If the Renying pulse is greater than the Qikou pulse, it indicates exogenous exterior syndromes or Yang-excess heat. If Qikou is greater than Renying, it points to internal injury or Yin-excess cold. This direct approach greatly enhances the objectivity and accuracy of clinical diagnosis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 十大脉象 -->
+            <div class="card-row">
+                <div class="card-image-wrapper">
+                    <div class="card-image-placeholder">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                </div>
+                <div class="card-text-wrapper">
+                    <h3 style="font-size: 1.8rem; color: var(--color-primary); margin-bottom: 15px;">Ten Pulse Images</h3>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem;">
+                        To facilitate clinical learning, the Chang Sang Jun Pulse Method simplifies the complex traditional 28 pulses into the 'Ten Pulse Images' with the most clinical significance.
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        These ten pulses include: <strong>Rolling, Throbbing, Turbid, Large, Small, Slippery, Choppy, String-taut, Tense, and Weak pulses</strong>. Each pulse image directly corresponds to a specific pathological state and medication direction, making pulse diagnosis clear and practical rather than mysterious.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Chang Sang Jun Pulse Method Academic Committee. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+
